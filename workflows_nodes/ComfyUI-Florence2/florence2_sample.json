@@ -1,0 +1,716 @@
+{
+  "last_node_id": 46,
+  "last_link_id": 32,
+  "nodes": [
+    {
+      "id": 26,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1527,
+        "1": 591.4000244140625
+      },
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 18,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 27,
+      "type": "PreviewMask_",
+      "pos": {
+        "0": 1756,
+        "1": 590.4000244140625
+      },
+      "size": {
+        "0": 208.920166015625,
+        "1": 246
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 19,
+          "label": "mask"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewMask_"
+      }
+    },
+    {
+      "id": 28,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1983,
+        "1": 585.4000244140625
+      },
+      "size": {
+        "0": 213.26792907714844,
+        "1": 84.39669799804688
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 20,
+          "label": "anything"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        " face<loc_383><loc_124><loc_552><loc_340>"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": {
+        "0": 1525,
+        "1": -62.600006103515625
+      },
+      "size": {
+        "0": 311.5450744628906,
+        "1": 431.07012939453125
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            16
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "0 (1).png",
+        "image"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "Florence2Run",
+      "pos": {
+        "0": 2853.76953125,
+        "1": 179.86050415039062
+      },
+      "size": {
+        "0": 400,
+        "1": 352
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 32,
+          "label": "image"
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 31,
+          "label": "florence2_model"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            26
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "image"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            27
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "mask"
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            28
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "caption"
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": [
+            29
+          ],
+          "slot_index": 3,
+          "shape": 3,
+          "label": "data"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Florence2Run"
+      },
+      "widgets_values": [
+        "\"What is the total amount on this receipt?\"\n",
+        "caption_to_phrase_grounding",
+        true,
+        false,
+        1024,
+        5,
+        true,
+        "",
+        294707873225903,
+        "randomize"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "LoadImage",
+      "pos": {
+        "0": 2507.76953125,
+        "1": -65.1395034790039
+      },
+      "size": {
+        "0": 311.5450744628906,
+        "1": 431.07012939453125
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            32
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "slot_index": 1,
+          "shape": 3,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ReceiptSwiss.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 45,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": {
+        "0": 2499.76953125,
+        "1": 428.8605041503906
+      },
+      "size": {
+        "0": 335.15875244140625,
+        "1": 106
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "type": "PEFTLORA",
+          "link": null,
+          "label": "lora"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            31
+          ],
+          "shape": 3,
+          "label": "florence2_model",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadFlorence2Model"
+      },
+      "widgets_values": [
+        "HuggingFaceM4/Florence-2-DocVQA",
+        "fp32",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "Florence2Run",
+      "pos": {
+        "0": 1881,
+        "1": 185.39999389648438
+      },
+      "size": {
+        "0": 400,
+        "1": 352
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 16,
+          "label": "image"
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 17,
+          "label": "florence2_model"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            18
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "image"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": [
+            19
+          ],
+          "slot_index": 1,
+          "shape": 3,
+          "label": "mask"
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            20
+          ],
+          "slot_index": 2,
+          "shape": 3,
+          "label": "caption"
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": [
+            21
+          ],
+          "slot_index": 3,
+          "shape": 3,
+          "label": "data"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Florence2Run"
+      },
+      "widgets_values": [
+        "face",
+        "caption_to_phrase_grounding",
+        true,
+        false,
+        1024,
+        5,
+        true,
+        "",
+        1003790043108505,
+        "randomize"
+      ]
+    },
+    {
+      "id": 25,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": {
+        "0": 1526,
+        "1": 426.3999938964844
+      },
+      "size": {
+        "0": 335.15875244140625,
+        "1": 106
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "type": "PEFTLORA",
+          "link": null,
+          "label": "lora"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            17
+          ],
+          "shape": 3,
+          "label": "florence2_model"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadFlorence2Model"
+      },
+      "widgets_values": [
+        "gokaygokay/Florence-2-Flux-Large",
+        "fp32",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 41,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 2496,
+        "1": 588
+      },
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 42,
+      "type": "PreviewMask_",
+      "pos": {
+        "0": 2727,
+        "1": 588
+      },
+      "size": {
+        "0": 208.920166015625,
+        "1": 246
+      },
+      "flags": {
+        "collapsed": false
+      },
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 27,
+          "label": "mask"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewMask_"
+      }
+    },
+    {
+      "id": 29,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 2215,
+        "1": 585
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 21,
+          "label": "anything"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "[[[218.59500122070312, 70.96499633789062, 314.92498779296875, 194.08499145507812]]]"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 2961,
+        "1": 591
+      },
+      "size": {
+        "0": 213.26792907714844,
+        "1": 84.39669799804688
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 28,
+          "label": "anything"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "The total amount on this receipt is 54.50."
+      ]
+    },
+    {
+      "id": 44,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 3193,
+        "1": 591
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 29,
+          "label": "anything"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "[[]]"
+      ]
+    }
+  ],
+  "links": [
+    [
+      16,
+      3,
+      0,
+      24,
+      0,
+      "IMAGE"
+    ],
+    [
+      17,
+      25,
+      0,
+      24,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      18,
+      24,
+      0,
+      26,
+      0,
+      "IMAGE"
+    ],
+    [
+      19,
+      24,
+      1,
+      27,
+      0,
+      "MASK"
+    ],
+    [
+      20,
+      24,
+      2,
+      28,
+      0,
+      "*"
+    ],
+    [
+      21,
+      24,
+      3,
+      29,
+      0,
+      "*"
+    ],
+    [
+      26,
+      40,
+      0,
+      41,
+      0,
+      "IMAGE"
+    ],
+    [
+      27,
+      40,
+      1,
+      42,
+      0,
+      "MASK"
+    ],
+    [
+      28,
+      40,
+      2,
+      43,
+      0,
+      "*"
+    ],
+    [
+      29,
+      40,
+      3,
+      44,
+      0,
+      "*"
+    ],
+    [
+      31,
+      45,
+      0,
+      40,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      32,
+      46,
+      0,
+      40,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "DocVQA",
+      "bounding": [
+        2483,
+        -139,
+        931,
+        983
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "Caption to phrase grouding",
+      "bounding": [
+        1515,
+        -136,
+        926,
+        984
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8769226950000019,
+      "offset": [
+        -863.9522162032008,
+        323.9587233615655
+      ]
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,625 @@
+{
+  "last_node_id": 18,
+  "last_link_id": 39,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": -570,
+        "1": 240
+      },
+      "size": {
+        "0": 315,
+        "1": 98
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            7
+          ],
+          "shape": 3,
+          "label": "模型"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            9
+          ],
+          "shape": 3,
+          "label": "CLIP",
+          "slot_index": 1
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            8
+          ],
+          "shape": 3,
+          "label": "VAE",
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "juggernautXL_v9Rdphoto2Lightning.safetensors"
+      ]
+    },
+    {
+      "id": 2,
+      "type": "SUPIR_model_loader_v2",
+      "pos": {
+        "0": -230,
+        "1": 240
+      },
+      "size": {
+        "0": 315,
+        "1": 170
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 7,
+          "label": "模型"
+        },
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 9,
+          "label": "CLIP"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 8,
+          "label": "VAE"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SUPIR_model",
+          "type": "SUPIRMODEL",
+          "links": [
+            1,
+            13
+          ],
+          "shape": 3
+        },
+        {
+          "name": "SUPIR_VAE",
+          "type": "SUPIRVAE",
+          "links": [
+            21,
+            35
+          ],
+          "shape": 3,
+          "label": "SUPIR_VAE",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_model_loader_v2"
+      },
+      "widgets_values": [
+        "SUPIR-v0Q.ckpt",
+        false,
+        "auto",
+        false
+      ]
+    },
+    {
+      "id": 8,
+      "type": "SUPIR_conditioner",
+      "pos": {
+        "0": 442,
+        "1": 241
+      },
+      "size": [
+        400,
+        201
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "SUPIR_model",
+          "type": "SUPIRMODEL",
+          "link": 13
+        },
+        {
+          "name": "latents",
+          "type": "LATENT",
+          "link": 39,
+          "label": "Latent"
+        },
+        {
+          "name": "captions",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "captions"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "type": "SUPIR_cond_pos",
+          "links": [
+            11
+          ],
+          "shape": 3,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "SUPIR_cond_neg",
+          "links": [
+            12
+          ],
+          "shape": 3,
+          "label": "负面条件",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_conditioner"
+      },
+      "widgets_values": [
+        "high quality, detailed, photograph of a man dancing",
+        "bad quality, blurry, messy",
+        "",
+        true,
+        true,
+        true
+      ]
+    },
+    {
+      "id": 10,
+      "type": "SUPIR_decode",
+      "pos": {
+        "0": 1199,
+        "1": 230
+      },
+      "size": {
+        "0": 315,
+        "1": 102
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "SUPIR_VAE",
+          "type": "SUPIRVAE",
+          "link": 21,
+          "label": "SUPIR_VAE"
+        },
+        {
+          "name": "latents",
+          "type": "LATENT",
+          "link": 18,
+          "label": "Latent"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            20,
+            37
+          ],
+          "shape": 3,
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_decode"
+      },
+      "widgets_values": [
+        true,
+        512
+      ]
+    },
+    {
+      "id": 1,
+      "type": "SUPIR_sample",
+      "pos": {
+        "0": 862,
+        "1": 229
+      },
+      "size": {
+        "0": 315,
+        "1": 454
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "SUPIR_model",
+          "type": "SUPIRMODEL",
+          "link": 1,
+          "label": "SUPIR模型"
+        },
+        {
+          "name": "latents",
+          "type": "LATENT",
+          "link": 5,
+          "label": "Latent"
+        },
+        {
+          "name": "positive",
+          "type": "SUPIR_cond_pos",
+          "link": 11,
+          "label": "正面条件"
+        },
+        {
+          "name": "negative",
+          "type": "SUPIR_cond_neg",
+          "link": 12,
+          "label": "负面条件"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            18
+          ],
+          "shape": 3,
+          "label": "Latent",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_sample"
+      },
+      "widgets_values": [
+        174277455657960,
+        "fixed",
+        45,
+        4,
+        4,
+        5,
+        1.003,
+        1,
+        1,
+        1,
+        -1,
+        false,
+        "RestoreEDMSampler",
+        1024,
+        512
+      ]
+    },
+    {
+      "id": 18,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1202,
+        "1": 382
+      },
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 37,
+          "label": "图像"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 9,
+      "type": "Image Comparer (rgthree)",
+      "pos": {
+        "0": 209,
+        "1": 493
+      },
+      "size": [
+        627.31198669938,
+        603.1451846288255
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_a",
+          "type": "IMAGE",
+          "link": 16,
+          "label": "图像_A",
+          "dir": 3
+        },
+        {
+          "name": "image_b",
+          "type": "IMAGE",
+          "link": 20,
+          "label": "图像_B",
+          "dir": 3
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "comparer_mode": "Slide"
+      },
+      "widgets_values": [
+        [
+          {
+            "name": "A",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_ojccy_00021_.png&type=temp&subfolder=&rand=0.9173684729441274"
+          },
+          {
+            "name": "B",
+            "selected": true,
+            "url": "/api/view?filename=rgthree.compare._temp_ojccy_00022_.png&type=temp&subfolder=&rand=0.48895746231775195"
+          }
+        ]
+      ]
+    },
+    {
+      "id": 5,
+      "type": "SUPIR_encode",
+      "pos": {
+        "0": 109,
+        "1": 244
+      },
+      "size": {
+        "0": 315,
+        "1": 126
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "SUPIR_VAE",
+          "type": "SUPIRVAE",
+          "link": 35,
+          "label": "SUPIR_VAE"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 38,
+          "label": "图像"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "latent",
+          "type": "LATENT",
+          "links": [
+            5,
+            39
+          ],
+          "shape": 3,
+          "label": "Latent",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "SUPIR_encode"
+      },
+      "widgets_values": [
+        true,
+        512,
+        "auto"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "LoadImage",
+      "pos": {
+        "0": -571,
+        "1": 388
+      },
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            16,
+            38
+          ],
+          "shape": 3,
+          "label": "图像",
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3,
+          "label": "遮罩"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "亞洲舞王蔡徐坤.png",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      2,
+      0,
+      1,
+      0,
+      "SUPIRMODEL"
+    ],
+    [
+      5,
+      5,
+      0,
+      1,
+      1,
+      "LATENT"
+    ],
+    [
+      7,
+      7,
+      0,
+      2,
+      0,
+      "MODEL"
+    ],
+    [
+      8,
+      7,
+      2,
+      2,
+      2,
+      "VAE"
+    ],
+    [
+      9,
+      7,
+      1,
+      2,
+      1,
+      "CLIP"
+    ],
+    [
+      11,
+      8,
+      0,
+      1,
+      2,
+      "SUPIR_cond_pos"
+    ],
+    [
+      12,
+      8,
+      1,
+      1,
+      3,
+      "SUPIR_cond_neg"
+    ],
+    [
+      13,
+      2,
+      0,
+      8,
+      0,
+      "SUPIRMODEL"
+    ],
+    [
+      16,
+      6,
+      0,
+      9,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      1,
+      0,
+      10,
+      1,
+      "LATENT"
+    ],
+    [
+      20,
+      10,
+      0,
+      9,
+      1,
+      "IMAGE"
+    ],
+    [
+      21,
+      2,
+      1,
+      10,
+      0,
+      "SUPIRVAE"
+    ],
+    [
+      35,
+      2,
+      1,
+      5,
+      0,
+      "SUPIRVAE"
+    ],
+    [
+      37,
+      10,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      38,
+      6,
+      0,
+      5,
+      1,
+      "IMAGE"
+    ],
+    [
+      39,
+      5,
+      0,
+      8,
+      1,
+      "LATENT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8264462809917354,
+      "offset": [
+        943.9443999813265,
+        -134.41480622474143
+      ]
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,1041 @@
+{
+  "last_node_id": 89,
+  "last_link_id": 130,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1268.3529052734375,
+        111.736083984375
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 129,
+          "label": "clip"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            6
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING"
+        }
+      ],
+      "title": "Prompt Negative",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, blurry, deformed, watermark, text, signature, depth of field, nsfw"
+      ]
+    },
+    {
+      "id": 63,
+      "type": "IPAdapterUnifiedLoader",
+      "pos": [
+        -6.683016300201416,
+        -681.085693359375
+      ],
+      "size": [
+        315,
+        78
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 94,
+          "label": "model"
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": null,
+          "shape": 7,
+          "label": "ipadapter"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "links": [
+            92
+          ],
+          "label": "model",
+          "slot_index": 0
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "links": [
+            93
+          ],
+          "label": "ipadapter",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IPAdapterUnifiedLoader"
+      },
+      "widgets_values": [
+        "PLUS FACE (portraits)"
+      ]
+    },
+    {
+      "id": 64,
+      "type": "LoadImage",
+      "pos": [
+        -2.683016538619995,
+        -548.085693359375
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            95,
+            116
+          ],
+          "label": "IMAGE",
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [],
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "elon-musk-9781982181284_hr.jpg",
+        "image"
+      ]
+    },
+    {
+      "id": 61,
+      "type": "IPAdapterFaceID",
+      "pos": [
+        337.3169250488281,
+        -684.085693359375
+      ],
+      "size": [
+        317.4000244140625,
+        322
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 92,
+          "label": "model"
+        },
+        {
+          "name": "ipadapter",
+          "type": "IPADAPTER",
+          "link": 93,
+          "label": "ipadapter"
+        },
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 95,
+          "label": "image"
+        },
+        {
+          "name": "image_negative",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image_negative"
+        },
+        {
+          "name": "attn_mask",
+          "type": "MASK",
+          "link": null,
+          "shape": 7,
+          "label": "attn_mask"
+        },
+        {
+          "name": "clip_vision",
+          "type": "CLIP_VISION",
+          "link": null,
+          "shape": 7,
+          "label": "clip_vision"
+        },
+        {
+          "name": "insightface",
+          "type": "INSIGHTFACE",
+          "link": null,
+          "shape": 7,
+          "label": "insightface"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            90
+          ],
+          "label": "MODEL",
+          "slot_index": 0
+        },
+        {
+          "name": "face_image",
+          "type": "IMAGE",
+          "links": [],
+          "label": "face_image",
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "IPAdapterFaceID"
+      },
+      "widgets_values": [
+        1,
+        1,
+        "linear",
+        "concat",
+        0,
+        1,
+        "V only"
+      ]
+    },
+    {
+      "id": 40,
+      "type": "EmptyLatentImage",
+      "pos": [
+        1358.3529052734375,
+        341.73602294921875
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            55
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "LATENT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "EmptyLatentImage"
+      },
+      "widgets_values": [
+        512,
+        512,
+        1
+      ]
+    },
+    {
+      "id": 25,
+      "type": "VAEDecode",
+      "pos": [
+        2048.3525390625,
+        -118.263916015625
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 29,
+          "label": "samples"
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 46,
+          "slot_index": 1,
+          "label": "vae"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            130
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 89,
+      "type": "PreviewImage",
+      "pos": [
+        2048.3525390625,
+        -28.263925552368164
+      ],
+      "size": [
+        210,
+        246
+      ],
+      "flags": {},
+      "order": 15,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 130,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 76,
+      "type": "Florence2Run",
+      "pos": [
+        -24.297807693481445,
+        126.26309204101562
+      ],
+      "size": [
+        400,
+        352
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 116,
+          "label": "image"
+        },
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "link": 118,
+          "label": "florence2_model"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": null,
+          "label": "image",
+          "slot_index": 0
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "links": null,
+          "label": "mask"
+        },
+        {
+          "name": "caption",
+          "type": "STRING",
+          "links": [
+            117,
+            120
+          ],
+          "label": "caption",
+          "slot_index": 2
+        },
+        {
+          "name": "data",
+          "type": "JSON",
+          "links": null,
+          "label": "data"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Florence2Run"
+      },
+      "widgets_values": [
+        "",
+        "more_detailed_caption",
+        true,
+        false,
+        1024,
+        3,
+        true,
+        "",
+        624520325877906,
+        "randomize"
+      ]
+    },
+    {
+      "id": 77,
+      "type": "DownloadAndLoadFlorence2Model",
+      "pos": [
+        -404.2978210449219,
+        376.2629089355469
+      ],
+      "size": [
+        365.4000244140625,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "lora",
+          "type": "PEFTLORA",
+          "link": null,
+          "shape": 7,
+          "label": "lora"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "florence2_model",
+          "type": "FL2MODEL",
+          "links": [
+            118
+          ],
+          "label": "florence2_model"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "DownloadAndLoadFlorence2Model"
+      },
+      "widgets_values": [
+        "microsoft/Florence-2-base",
+        "fp16",
+        "sdpa"
+      ]
+    },
+    {
+      "id": 75,
+      "type": "ShowText|pysssss",
+      "pos": [
+        396.7020568847656,
+        125.26309204101562
+      ],
+      "size": [
+        434.2899475097656,
+        264.92626953125
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 117,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "STRING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "The image is a close-up portrait of Elon Musk, a British singer-songwriter. He is shown from the waist up, with his hands clasped together in front of him. He has a serious expression on his face and is looking directly at the camera. His hair is short and neatly combed, and he is wearing a dark suit jacket. The background is black, making the portrait stand out. The image is accompanied by text that reads \"Elon Musk by Walter Isaacson.\""
+      ]
+    },
+    {
+      "id": 80,
+      "type": "Text Multiline",
+      "pos": [
+        395.7020568847656,
+        -131.73696899414062
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            119
+          ],
+          "label": "STRING",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Multiline"
+      },
+      "widgets_values": [
+        "pixel art, scenery, upperbody"
+      ]
+    },
+    {
+      "id": 79,
+      "type": "Text Concatenate",
+      "pos": [
+        852.7023315429688,
+        127.26309967041016
+      ],
+      "size": [
+        315,
+        178
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text_a",
+          "type": "STRING",
+          "link": 119,
+          "widget": {
+            "name": "text_a"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_b",
+          "type": "STRING",
+          "link": 120,
+          "widget": {
+            "name": "text_b"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_c",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_c"
+          },
+          "shape": 7
+        },
+        {
+          "name": "text_d",
+          "type": "STRING",
+          "link": null,
+          "widget": {
+            "name": "text_d"
+          },
+          "shape": 7
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            121,
+            122
+          ],
+          "label": "STRING",
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Text Concatenate"
+      },
+      "widgets_values": [
+        ", ",
+        "true",
+        "",
+        "",
+        "",
+        ""
+      ]
+    },
+    {
+      "id": 3,
+      "type": "KSampler",
+      "pos": [
+        1718.3529052734375,
+        -118.263916015625
+      ],
+      "size": [
+        315,
+        474
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 90,
+          "label": "model"
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 4,
+          "label": "positive"
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 6,
+          "label": "negative"
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 55,
+          "label": "latent_image"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            29
+          ],
+          "slot_index": 0,
+          "label": "LATENT"
+        }
+      ],
+      "title": "Base KSampler",
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        321,
+        "fixed",
+        20,
+        7,
+        "dpmpp_sde_gpu",
+        "normal",
+        1
+      ]
+    },
+    {
+      "id": 4,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        -398,
+        -105
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            94
+          ],
+          "slot_index": 0,
+          "label": "MODEL"
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            128,
+            129
+          ],
+          "slot_index": 1,
+          "label": "CLIP"
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            46
+          ],
+          "slot_index": 2,
+          "label": "VAE"
+        }
+      ],
+      "title": "Load Base Safetensors",
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "aziibpixelmix_v10.safetensors"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        1269,
+        -123.11004638671875
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 128,
+          "label": "clip"
+        },
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 121,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            4
+          ],
+          "slot_index": 0,
+          "label": "CONDITIONING"
+        }
+      ],
+      "title": "Prompt Positive",
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "pixel art, scenery, upperbody"
+      ]
+    },
+    {
+      "id": 81,
+      "type": "ShowText|pysssss",
+      "pos": [
+        852,
+        351
+      ],
+      "size": [
+        363.1009521484375,
+        191.96961975097656
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 122,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "STRING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        "",
+        "pixel art, scenery, upperbody, The image is a close-up portrait of Elon Musk, a British singer-songwriter. He is shown from the waist up, with his hands clasped together in front of him. He has a serious expression on his face and is looking directly at the camera. His hair is short and neatly combed, and he is wearing a dark suit jacket. The background is black, making the portrait stand out. The image is accompanied by text that reads \"Elon Musk by Walter Isaacson.\""
+      ]
+    }
+  ],
+  "links": [
+    [
+      4,
+      6,
+      0,
+      3,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      6,
+      7,
+      0,
+      3,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      29,
+      3,
+      0,
+      25,
+      0,
+      "LATENT"
+    ],
+    [
+      46,
+      4,
+      2,
+      25,
+      1,
+      "VAE"
+    ],
+    [
+      55,
+      40,
+      0,
+      3,
+      3,
+      "LATENT"
+    ],
+    [
+      90,
+      61,
+      0,
+      3,
+      0,
+      "MODEL"
+    ],
+    [
+      92,
+      63,
+      0,
+      61,
+      0,
+      "MODEL"
+    ],
+    [
+      93,
+      63,
+      1,
+      61,
+      1,
+      "IPADAPTER"
+    ],
+    [
+      94,
+      4,
+      0,
+      63,
+      0,
+      "MODEL"
+    ],
+    [
+      95,
+      64,
+      0,
+      61,
+      2,
+      "IMAGE"
+    ],
+    [
+      116,
+      64,
+      0,
+      76,
+      0,
+      "IMAGE"
+    ],
+    [
+      117,
+      76,
+      2,
+      75,
+      0,
+      "STRING"
+    ],
+    [
+      118,
+      77,
+      0,
+      76,
+      1,
+      "FL2MODEL"
+    ],
+    [
+      119,
+      80,
+      0,
+      79,
+      0,
+      "STRING"
+    ],
+    [
+      120,
+      76,
+      2,
+      79,
+      1,
+      "STRING"
+    ],
+    [
+      121,
+      79,
+      0,
+      6,
+      1,
+      "STRING"
+    ],
+    [
+      122,
+      79,
+      0,
+      81,
+      0,
+      "STRING"
+    ],
+    [
+      128,
+      4,
+      1,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      129,
+      4,
+      1,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      130,
+      25,
+      0,
+      89,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "IPA",
+      "bounding": [
+        -16.68305206298828,
+        -757.6856689453125,
+        681.4000244140625,
+        533.5999755859375
+      ],
+      "color": "#a1309b",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "正向提示词",
+      "bounding": [
+        -414.2978210449219,
+        -205.3369598388672,
+        1653.1009521484375,
+        762.569580078125
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "生图",
+      "bounding": [
+        1258.3529052734375,
+        -201.86392211914062,
+        1053.135009765625,
+        755.2380981445312
+      ],
+      "color": "#b06634",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7247295000000052,
+      "offset": [
+        1749.8119515011554,
+        1325.6682346039086
+      ]
+    },
+    "ue_links": [],
+    "workspace_info": {
+      "id": "74LjOxrZS7BjtCy_iVs6i"
+    }
+  },
+  "version": 0.4
+}

@@ -1,0 +1,1064 @@
+{
+  "last_node_id": 46,
+  "last_link_id": 75,
+  "nodes": [
+    {
+      "id": 34,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": -182.9530487060547,
+        "1": -124.52981567382812
+      },
+      "size": {
+        "0": 342.1056213378906,
+        "1": 100.5473403930664
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 59
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            53
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "A plastic (skeleton) in a pink dress sleeping, draping, wrinkles, shiny"
+      ]
+    },
+    {
+      "id": 35,
+      "type": "CLIPTextEncode",
+      "pos": {
+        "0": -176.9530487060547,
+        "1": 22.47016716003418
+      },
+      "size": {
+        "0": 326.2262268066406,
+        "1": 96
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "type": "CLIP",
+          "link": 60
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "type": "CONDITIONING",
+          "links": [
+            54
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality"
+      ]
+    },
+    {
+      "id": 38,
+      "type": "VAEDecode",
+      "pos": {
+        "0": 517.0469970703125,
+        "1": -126.52981567382812
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 17,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "type": "LATENT",
+          "link": 56
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 69,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            65
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEDecode"
+      }
+    },
+    {
+      "id": 15,
+      "type": "SaveImage",
+      "pos": {
+        "0": 517.0469970703125,
+        "1": -39.52983474731445
+      },
+      "size": {
+        "0": 330.1112365722656,
+        "1": 378.1239929199219
+      },
+      "flags": {},
+      "order": 18,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 65
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "SaveImage"
+      },
+      "widgets_values": [
+        "ComfyUI"
+      ]
+    },
+    {
+      "id": 37,
+      "type": "VAEEncode",
+      "pos": {
+        "0": -55.95304870605469,
+        "1": 270.4701843261719
+      },
+      "size": {
+        "0": 210,
+        "1": 46
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "pixels",
+          "type": "IMAGE",
+          "link": 57
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "link": 58,
+          "slot_index": 1
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            55
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "VAEEncode"
+      }
+    },
+    {
+      "id": 9,
+      "type": "CheckpointLoaderSimple",
+      "pos": {
+        "0": -505.953125,
+        "1": -122.52981567382812
+      },
+      "size": {
+        "0": 301.2330322265625,
+        "1": 98
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "type": "MODEL",
+          "links": [
+            62
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "CLIP",
+          "type": "CLIP",
+          "links": [
+            59,
+            60
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "VAE",
+          "type": "VAE",
+          "links": [
+            58,
+            69
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "epicrealism_naturalSinRC1VAE.safetensors"
+      ]
+    },
+    {
+      "id": 36,
+      "type": "KSampler",
+      "pos": {
+        "0": 182.0469512939453,
+        "1": -122.52981567382812
+      },
+      "size": {
+        "0": 315,
+        "1": 442
+      },
+      "flags": {},
+      "order": 16,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "type": "MODEL",
+          "link": 62,
+          "slot_index": 0
+        },
+        {
+          "name": "positive",
+          "type": "CONDITIONING",
+          "link": 53
+        },
+        {
+          "name": "negative",
+          "type": "CONDITIONING",
+          "link": 54
+        },
+        {
+          "name": "latent_image",
+          "type": "LATENT",
+          "link": 55
+        },
+        {
+          "name": "denoise",
+          "type": "FLOAT",
+          "link": 71,
+          "slot_index": 4,
+          "widget": {
+            "name": "denoise"
+          }
+        },
+        {
+          "name": "seed",
+          "type": "INT",
+          "link": 74,
+          "widget": {
+            "name": "seed"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "LATENT",
+          "type": "LATENT",
+          "links": [
+            56
+          ],
+          "slot_index": 0,
+          "shape": 3,
+          "color": "#FF9CF9"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "KSampler"
+      },
+      "widgets_values": [
+        286457730243556,
+        "randomize",
+        15,
+        8,
+        "euler_ancestral",
+        "normal",
+        0.6
+      ]
+    },
+    {
+      "id": 31,
+      "type": "PrimitiveNode",
+      "pos": {
+        "0": -1560,
+        "1": 480
+      },
+      "size": {
+        "0": 210,
+        "1": 82
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            43
+          ],
+          "slot_index": 0,
+          "widget": {
+            "name": "total_frames"
+          }
+        }
+      ],
+      "title": "total_frames",
+      "properties": {
+        "Run widget replace on values": false
+      },
+      "widgets_values": [
+        30,
+        "fixed"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 43,
+      "type": "Note",
+      "pos": {
+        "0": -1560,
+        "1": 330
+      },
+      "size": {
+        "0": 214.22988891601562,
+        "1": 107.93704986572266
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "输入总帧数"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 18,
+      "type": "Get Batch From History (mtb)",
+      "pos": {
+        "0": -1018.3063354492188,
+        "1": 621.6787109375
+      },
+      "size": {
+        "0": 235.1999969482422,
+        "1": 126
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "passthrough_image",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "enable",
+          "type": "BOOLEAN",
+          "link": 31,
+          "slot_index": 1,
+          "widget": {
+            "name": "enable"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "i",
+          "type": "IMAGE",
+          "links": [
+            18
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Get Batch From History (mtb)"
+      },
+      "widgets_values": [
+        true,
+        29,
+        0,
+        1036
+      ]
+    },
+    {
+      "id": 19,
+      "type": "Save Gif (mtb)",
+      "pos": {
+        "0": -768.3065795898438,
+        "1": 621.6787109375
+      },
+      "size": {
+        "0": 210,
+        "1": 372
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 18
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "Save Gif (mtb)"
+      },
+      "widgets_values": [
+        12,
+        1,
+        false,
+        false,
+        "nearest",
+        false
+      ]
+    },
+    {
+      "id": 24,
+      "type": "Note",
+      "pos": {
+        "0": -1120,
+        "1": -170
+      },
+      "size": {
+        "0": 233.25148010253906,
+        "1": 82.53218841552734
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": ""
+      },
+      "widgets_values": [
+        "在第一帧中，我们获得初始化图像，在所有后续帧中则是获取来自前一个队列项的反馈"
+      ],
+      "color": "#223",
+      "bgcolor": "#335",
+      "shape": 1
+    },
+    {
+      "id": 11,
+      "type": "Get Batch From History (mtb)",
+      "pos": {
+        "0": -1120,
+        "1": -40
+      },
+      "size": {
+        "0": 235.1999969482422,
+        "1": 126
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "passthrough_image",
+          "type": "IMAGE",
+          "link": 10
+        },
+        {
+          "name": "enable",
+          "type": "BOOLEAN",
+          "link": 9,
+          "slot_index": 1,
+          "widget": {
+            "name": "enable"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "i",
+          "type": "IMAGE",
+          "links": [
+            26
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Get Batch From History (mtb)"
+      },
+      "widgets_values": [
+        false,
+        1,
+        0,
+        1036
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 10,
+      "type": "LoadImage",
+      "pos": {
+        "0": -1458,
+        "1": -54
+      },
+      "size": {
+        "0": 315,
+        "1": 314
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "example.png",
+        "image"
+      ],
+      "color": "#432",
+      "bgcolor": "#653",
+      "shape": 1
+    },
+    {
+      "id": 46,
+      "type": "PreviewImage",
+      "pos": {
+        "0": -860,
+        "1": 30
+      },
+      "size": {
+        "0": 210,
+        "1": 26
+      },
+      "flags": {},
+      "order": 15,
+      "mode": 4,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 75
+        }
+      ],
+      "outputs": [],
+      "title": "查看过程图像",
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 44,
+      "type": "Fit Number (mtb)",
+      "pos": {
+        "0": -866,
+        "1": 317
+      },
+      "size": {
+        "0": 315,
+        "1": 202
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "value",
+          "type": "FLOAT",
+          "link": 70,
+          "widget": {
+            "name": "value"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            71
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Fit Number (mtb)"
+      },
+      "widgets_values": [
+        0,
+        false,
+        0,
+        1,
+        0.4,
+        0.65,
+        "Linear"
+      ]
+    },
+    {
+      "id": 12,
+      "type": "Int To Bool (mtb)",
+      "pos": {
+        "0": -1116,
+        "1": 129
+      },
+      "size": {
+        "0": 210,
+        "1": 36.366058349609375
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "int",
+          "type": "INT",
+          "link": 34,
+          "slot_index": 0,
+          "widget": {
+            "name": "int"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "BOOLEAN",
+          "type": "BOOLEAN",
+          "links": [
+            9
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Int To Bool (mtb)"
+      },
+      "widgets_values": [
+        29
+      ],
+      "color": "#222",
+      "bgcolor": "#000"
+    },
+    {
+      "id": 14,
+      "type": "Transform Image (mtb)",
+      "pos": {
+        "0": -860,
+        "1": -230
+      },
+      "size": {
+        "0": 315,
+        "1": 214
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 26
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            57,
+            75
+          ],
+          "slot_index": 0,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Transform Image (mtb)"
+      },
+      "widgets_values": [
+        15,
+        0,
+        0.98,
+        -1,
+        0,
+        "reflect",
+        "#930606"
+      ],
+      "color": "#223",
+      "bgcolor": "#335"
+    },
+    {
+      "id": 17,
+      "type": "Animation Builder (mtb)",
+      "pos": {
+        "0": -1330,
+        "1": 320
+      },
+      "size": {
+        "0": 211.60000610351562,
+        "1": 318
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "total_frames",
+          "type": "INT",
+          "link": 43,
+          "slot_index": 0,
+          "widget": {
+            "name": "total_frames"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "frame",
+          "type": "INT",
+          "links": [
+            34
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "0-1 (scaled)",
+          "type": "FLOAT",
+          "links": [
+            70
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "count",
+          "type": "INT",
+          "links": [
+            74
+          ],
+          "slot_index": 2,
+          "shape": 3
+        },
+        {
+          "name": "loop_ended",
+          "type": "BOOLEAN",
+          "links": [
+            31
+          ],
+          "slot_index": 3,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "Animation Builder (mtb)"
+      },
+      "widgets_values": [
+        30,
+        1,
+        2,
+        0,
+        0,
+        "Idle",
+        "Iteration: Idle",
+        "reset",
+        "queue"
+      ],
+      "color": "#232",
+      "bgcolor": "#353",
+      "shape": 1
+    }
+  ],
+  "links": [
+    [
+      9,
+      12,
+      0,
+      11,
+      1,
+      "BOOLEAN"
+    ],
+    [
+      10,
+      10,
+      0,
+      11,
+      0,
+      "IMAGE"
+    ],
+    [
+      18,
+      18,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      26,
+      11,
+      0,
+      14,
+      0,
+      "IMAGE"
+    ],
+    [
+      31,
+      17,
+      3,
+      18,
+      1,
+      "BOOLEAN"
+    ],
+    [
+      34,
+      17,
+      0,
+      12,
+      0,
+      "INT"
+    ],
+    [
+      43,
+      31,
+      0,
+      17,
+      0,
+      "INT"
+    ],
+    [
+      53,
+      34,
+      0,
+      36,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      54,
+      35,
+      0,
+      36,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      55,
+      37,
+      0,
+      36,
+      3,
+      "LATENT"
+    ],
+    [
+      56,
+      36,
+      0,
+      38,
+      0,
+      "LATENT"
+    ],
+    [
+      57,
+      14,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      58,
+      9,
+      2,
+      37,
+      1,
+      "VAE"
+    ],
+    [
+      59,
+      9,
+      1,
+      34,
+      0,
+      "CLIP"
+    ],
+    [
+      60,
+      9,
+      1,
+      35,
+      0,
+      "CLIP"
+    ],
+    [
+      62,
+      9,
+      0,
+      36,
+      0,
+      "MODEL"
+    ],
+    [
+      65,
+      38,
+      0,
+      15,
+      0,
+      "IMAGE"
+    ],
+    [
+      69,
+      9,
+      2,
+      38,
+      1,
+      "VAE"
+    ],
+    [
+      70,
+      17,
+      1,
+      44,
+      0,
+      "FLOAT"
+    ],
+    [
+      71,
+      44,
+      0,
+      36,
+      4,
+      "FLOAT"
+    ],
+    [
+      74,
+      17,
+      2,
+      36,
+      5,
+      "INT"
+    ],
+    [
+      75,
+      14,
+      0,
+      46,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [
+    {
+      "title": "视频输出",
+      "bounding": [
+        -1030,
+        547,
+        484,
+        456
+      ],
+      "color": "#8A8",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "title": "生图流程",
+      "bounding": [
+        -516,
+        -200,
+        1373,
+        549
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.8769226950000013,
+      "offset": [
+        1837.4670465467914,
+        437.96804100629083
+      ]
+    }
+  },
+  "version": 0.4
+}

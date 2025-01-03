@@ -1,0 +1,701 @@
+{
+  "last_node_id": 38,
+  "last_link_id": 29,
+  "nodes": [
+    {
+      "id": 19,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 823,
+        "1": 14
+      },
+      "size": {
+        "0": 277.20001220703125,
+        "1": 86
+      },
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 10
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            12
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "570 width",
+          "type": "INT",
+          "links": [
+            13
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "570 height",
+          "type": "INT",
+          "links": [
+            14
+          ],
+          "slot_index": 2,
+          "shape": 3
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": [
+            15
+          ],
+          "slot_index": 3,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      }
+    },
+    {
+      "id": 21,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1250,
+        "1": -100
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 12
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "tensor([[[[0.6078, 0.6745, 0.7569],\n          [0.5961, 0.6745, 0.7529],\n          [0.5922, 0.6706, 0.7451],\n          ...,\n          [0.0667, 0.1020, 0.1098],\n          [0.0706, 0.0980, 0.1059],\n          [0.0667, 0.0980, 0.1059]],\n\n         [[0.6863, 0.7373, 0.8039],\n          [0.6745, 0.7294, 0.7922],\n          [0.6627, 0.7176, 0.7843],\n          ...,\n          [0.0667, 0.0941, 0.1098],\n          [0.0706, 0.0980, 0.1098],\n          [0.0667, 0.0980, 0.1098]],\n\n         [[0.8078, 0.8392, 0.8863],\n          [0.7922, 0.8235, 0.8745],\n          [0.7725, 0.8039, 0.8588],\n          ...,\n          [0.0667, 0.0941, 0.1059],\n          [0.0706, 0.0980, 0.1098],\n          [0.0706, 0.0980, 0.1059]],\n\n         ...,\n\n         [[0.1922, 0.1725, 0.0902],\n          [0.2118, 0.1882, 0.1020],\n          [0.2078, 0.1804, 0.1020],\n          ...,\n          [0.7255, 0.5255, 0.1765],\n          [0.7098, 0.5098, 0.1765],\n          [0.6980, 0.4980, 0.1608]],\n\n         [[0.2157, 0.1961, 0.1098],\n          [0.2392, 0.2196, 0.1255],\n          [0.2118, 0.1922, 0.1098],\n          ...,\n          [0.7176, 0.5176, 0.1765],\n          [0.7059, 0.5059, 0.1725],\n          [0.6941, 0.4980, 0.1608]],\n\n         [[0.2314, 0.2000, 0.1216],\n          [0.2510, 0.2196, 0.1373],\n          [0.2275, 0.2000, 0.1255],\n          ...,\n          [0.7176, 0.5176, 0.1765],\n          [0.7059, 0.5059, 0.1686],\n          [0.6863, 0.4902, 0.1725]]]])"
+      ]
+    },
+    {
+      "id": 23,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1254,
+        "1": 172
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 14
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "570"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1255,
+        "1": 304
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 15
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "1"
+      ]
+    },
+    {
+      "id": 22,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1252,
+        "1": 35
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 13
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "570"
+      ]
+    },
+    {
+      "id": 27,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1640,
+        "1": 790
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 17
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "512"
+      ]
+    },
+    {
+      "id": 28,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1640,
+        "1": 920
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 18
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "512"
+      ]
+    },
+    {
+      "id": 29,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1640,
+        "1": 1060
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 14,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 19
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "1"
+      ]
+    },
+    {
+      "id": 18,
+      "type": "ImageResizeKJ",
+      "pos": {
+        "0": 810,
+        "1": 630
+      },
+      "size": {
+        "0": 315,
+        "1": 266
+      },
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 20
+        },
+        {
+          "name": "get_image_size",
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "width_input",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "width_input"
+          }
+        },
+        {
+          "name": "height_input",
+          "type": "INT",
+          "link": null,
+          "widget": {
+            "name": "height_input"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            21,
+            22
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            23
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            24
+          ],
+          "slot_index": 2,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ImageResizeKJ"
+      },
+      "widgets_values": [
+        512,
+        512,
+        "nearest-exact",
+        false,
+        2,
+        0,
+        0,
+        "disabled"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": {
+        "0": 357,
+        "1": 285
+      },
+      "size": {
+        "0": 349.8505554199219,
+        "1": 343.7181091308594
+      },
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            10,
+            20
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "0 (1).png",
+        "image"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "PreviewImage",
+      "pos": {
+        "0": 1259,
+        "1": 481
+      },
+      "size": {
+        "0": 210,
+        "1": 246
+      },
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 22
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      }
+    },
+    {
+      "id": 25,
+      "type": "GetImageSizeAndCount",
+      "pos": {
+        "0": 1264,
+        "1": 793
+      },
+      "size": {
+        "0": 277.20001220703125,
+        "1": 86
+      },
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 21
+        }
+      ],
+      "outputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "links": [
+            16
+          ],
+          "slot_index": 0,
+          "shape": 3
+        },
+        {
+          "name": "512 width",
+          "type": "INT",
+          "links": [
+            17
+          ],
+          "slot_index": 1,
+          "shape": 3
+        },
+        {
+          "name": "512 height",
+          "type": "INT",
+          "links": [
+            18
+          ],
+          "slot_index": 2,
+          "shape": 3
+        },
+        {
+          "name": "1 count",
+          "type": "INT",
+          "links": [
+            19
+          ],
+          "slot_index": 3,
+          "shape": 3
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "GetImageSizeAndCount"
+      }
+    },
+    {
+      "id": 31,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1270,
+        "1": 940
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 23
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "512"
+      ]
+    },
+    {
+      "id": 32,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1271,
+        "1": 1073
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 24
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "512"
+      ]
+    },
+    {
+      "id": 26,
+      "type": "easy showAnything",
+      "pos": {
+        "0": 1640,
+        "1": 650
+      },
+      "size": {
+        "0": 210,
+        "1": 76
+      },
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 16
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "tensor([[[[0.6078, 0.6745, 0.7569],\n          [0.5961, 0.6745, 0.7529],\n          [0.5922, 0.6706, 0.7451],\n          ...,\n          [0.0667, 0.1020, 0.1098],\n          [0.0706, 0.0980, 0.1059],\n          [0.0667, 0.0980, 0.1059]],\n\n         [[0.6863, 0.7373, 0.8039],\n          [0.6745, 0.7294, 0.7922],\n          [0.6627, 0.7176, 0.7843],\n          ...,\n          [0.0667, 0.0941, 0.1098],\n          [0.0706, 0.0980, 0.1098],\n          [0.0667, 0.0980, 0.1098]],\n\n         [[0.8078, 0.8392, 0.8863],\n          [0.7922, 0.8235, 0.8745],\n          [0.7725, 0.8039, 0.8588],\n          ...,\n          [0.0667, 0.0941, 0.1059],\n          [0.0706, 0.0980, 0.1098],\n          [0.0706, 0.0980, 0.1059]],\n\n         ...,\n\n         [[0.1922, 0.1725, 0.0902],\n          [0.2118, 0.1882, 0.1020],\n          [0.2078, 0.1804, 0.1020],\n          ...,\n          [0.7255, 0.5255, 0.1765],\n          [0.7098, 0.5098, 0.1765],\n          [0.6980, 0.4980, 0.1608]],\n\n         [[0.2157, 0.1961, 0.1098],\n          [0.2392, 0.2196, 0.1255],\n          [0.2118, 0.1922, 0.1098],\n          ...,\n          [0.7176, 0.5176, 0.1765],\n          [0.7059, 0.5059, 0.1725],\n          [0.6941, 0.4980, 0.1608]],\n\n         [[0.2314, 0.2000, 0.1216],\n          [0.2510, 0.2196, 0.1373],\n          [0.2275, 0.2000, 0.1255],\n          ...,\n          [0.7176, 0.5176, 0.1765],\n          [0.7059, 0.5059, 0.1686],\n          [0.6863, 0.4902, 0.1725]]]])"
+      ]
+    }
+  ],
+  "links": [
+    [
+      10,
+      1,
+      0,
+      19,
+      0,
+      "IMAGE"
+    ],
+    [
+      12,
+      19,
+      0,
+      21,
+      0,
+      "*"
+    ],
+    [
+      13,
+      19,
+      1,
+      22,
+      0,
+      "*"
+    ],
+    [
+      14,
+      19,
+      2,
+      23,
+      0,
+      "*"
+    ],
+    [
+      15,
+      19,
+      3,
+      24,
+      0,
+      "*"
+    ],
+    [
+      16,
+      25,
+      0,
+      26,
+      0,
+      "*"
+    ],
+    [
+      17,
+      25,
+      1,
+      27,
+      0,
+      "*"
+    ],
+    [
+      18,
+      25,
+      2,
+      28,
+      0,
+      "*"
+    ],
+    [
+      19,
+      25,
+      3,
+      29,
+      0,
+      "*"
+    ],
+    [
+      20,
+      1,
+      0,
+      18,
+      0,
+      "IMAGE"
+    ],
+    [
+      21,
+      18,
+      0,
+      25,
+      0,
+      "IMAGE"
+    ],
+    [
+      22,
+      18,
+      0,
+      30,
+      0,
+      "IMAGE"
+    ],
+    [
+      23,
+      18,
+      1,
+      31,
+      0,
+      "*"
+    ],
+    [
+      24,
+      18,
+      2,
+      32,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0610764609500016,
+      "offset": [
+        -109.37873637478984,
+        145.08793831739845
+      ]
+    }
+  },
+  "version": 0.4
+}
