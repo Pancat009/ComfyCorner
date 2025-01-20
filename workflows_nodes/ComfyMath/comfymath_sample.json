@@ -1,0 +1,625 @@
+{
+  "last_node_id": 57,
+  "last_link_id": 61,
+  "nodes": [
+    {
+      "id": 38,
+      "type": "CM_BoolToInt",
+      "pos": [
+        -190,
+        -970
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            37
+          ],
+          "slot_index": 0,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_BoolToInt"
+      },
+      "widgets_values": [
+        true
+      ]
+    },
+    {
+      "id": 39,
+      "type": "easy showAnything",
+      "pos": [
+        660,
+        -970
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 37,
+          "shape": 7,
+          "label": "anything"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null,
+          "label": "output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "1"
+      ]
+    },
+    {
+      "id": 46,
+      "type": "CM_FloatToNumber",
+      "pos": [
+        -190,
+        -720
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": [
+            44,
+            57
+          ],
+          "slot_index": 0,
+          "label": "NUMBER"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_FloatToNumber"
+      },
+      "widgets_values": [
+        2.5
+      ]
+    },
+    {
+      "id": 44,
+      "type": "CM_NumberBinaryOperation",
+      "pos": [
+        200,
+        -840
+      ],
+      "size": [
+        315,
+        78
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "NUMBER",
+          "link": 56,
+          "label": "a"
+        },
+        {
+          "name": "b",
+          "type": "NUMBER",
+          "link": 57,
+          "label": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": [
+            43
+          ],
+          "slot_index": 0,
+          "label": "NUMBER"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_NumberBinaryOperation"
+      },
+      "widgets_values": [
+        "Mul"
+      ]
+    },
+    {
+      "id": 48,
+      "type": "CM_NumberToInt",
+      "pos": [
+        200,
+        -690
+      ],
+      "size": [
+        210,
+        26
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "NUMBER",
+          "link": 44,
+          "label": "a"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "INT",
+          "type": "INT",
+          "links": [
+            45
+          ],
+          "slot_index": 0,
+          "label": "INT"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_NumberToInt"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 41,
+      "type": "CM_IntToNumber",
+      "pos": [
+        -190,
+        -850
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": [
+            56,
+            60
+          ],
+          "slot_index": 0,
+          "label": "NUMBER"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_IntToNumber"
+      },
+      "widgets_values": [
+        42
+      ]
+    },
+    {
+      "id": 57,
+      "type": "CM_NumberBinaryOperation",
+      "pos": [
+        920,
+        -730
+      ],
+      "size": [
+        315,
+        78
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "a",
+          "type": "NUMBER",
+          "link": 60,
+          "label": "a"
+        },
+        {
+          "name": "b",
+          "type": "NUMBER",
+          "link": 59,
+          "label": "b"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "NUMBER",
+          "type": "NUMBER",
+          "links": [
+            61
+          ],
+          "slot_index": 0,
+          "label": "NUMBER"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_NumberBinaryOperation"
+      },
+      "widgets_values": [
+        "Mul"
+      ]
+    },
+    {
+      "id": 47,
+      "type": "easy showAnything",
+      "pos": [
+        660,
+        -820
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 43,
+          "shape": 7,
+          "label": "anything"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null,
+          "label": "output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "105.0"
+      ]
+    },
+    {
+      "id": 53,
+      "type": "easy showAnything",
+      "pos": [
+        660,
+        -522
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 51,
+          "shape": 7,
+          "label": "anything"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [],
+          "slot_index": 0,
+          "label": "output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "1024"
+      ]
+    },
+    {
+      "id": 54,
+      "type": "easy showAnything",
+      "pos": [
+        666,
+        -384
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 52,
+          "shape": 7,
+          "label": "anything"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [],
+          "slot_index": 0,
+          "label": "output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "1024"
+      ]
+    },
+    {
+      "id": 51,
+      "type": "CM_SDXLResolution",
+      "pos": [
+        -191,
+        -550
+      ],
+      "size": [
+        315,
+        78
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "width",
+          "type": "INT",
+          "links": [
+            51
+          ],
+          "slot_index": 0,
+          "label": "width"
+        },
+        {
+          "name": "height",
+          "type": "INT",
+          "links": [
+            52
+          ],
+          "slot_index": 1,
+          "label": "height"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "CM_SDXLResolution"
+      },
+      "widgets_values": [
+        "1024x1024"
+      ]
+    },
+    {
+      "id": 43,
+      "type": "easy showAnything",
+      "pos": [
+        1270,
+        -730
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 61,
+          "shape": 7,
+          "label": "anything"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [],
+          "slot_index": 0,
+          "label": "output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "84.0"
+      ]
+    },
+    {
+      "id": 49,
+      "type": "easy showAnything",
+      "pos": [
+        664,
+        -665
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 45,
+          "shape": 7,
+          "label": "anything"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": [
+            59
+          ],
+          "slot_index": 0,
+          "label": "output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "2"
+      ]
+    }
+  ],
+  "links": [
+    [
+      37,
+      38,
+      0,
+      39,
+      0,
+      "*"
+    ],
+    [
+      43,
+      44,
+      0,
+      47,
+      0,
+      "*"
+    ],
+    [
+      44,
+      46,
+      0,
+      48,
+      0,
+      "NUMBER"
+    ],
+    [
+      45,
+      48,
+      0,
+      49,
+      0,
+      "*"
+    ],
+    [
+      51,
+      51,
+      0,
+      53,
+      0,
+      "*"
+    ],
+    [
+      52,
+      51,
+      1,
+      54,
+      0,
+      "*"
+    ],
+    [
+      56,
+      41,
+      0,
+      44,
+      0,
+      "NUMBER"
+    ],
+    [
+      57,
+      46,
+      0,
+      44,
+      1,
+      "NUMBER"
+    ],
+    [
+      59,
+      49,
+      0,
+      57,
+      1,
+      "NUMBER"
+    ],
+    [
+      60,
+      41,
+      0,
+      57,
+      0,
+      "NUMBER"
+    ],
+    [
+      61,
+      57,
+      0,
+      43,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.553522046476897,
+      "offset": [
+        612.086637338842,
+        1326.447451767975
+      ]
+    },
+    "ue_links": [],
+    "node_versions": {
+      "ComfyMath": "939bb813f1c0ace959b62f20bb2da47190c4e211",
+      "ComfyUI-Easy-Use": "5e0cc2ea719203e1cf1b9ee1c782bfc4c281db18"
+    },
+    "workspace_info": {
+      "id": "Tf0dwxCIKYVE40J2roRVz"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}

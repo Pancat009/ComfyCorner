@@ -32,7 +32,7 @@
 <img src="images/飞书主页.png" alt="飞书主页" width="200"/>
 
 ### 微信群
-<img src="images/微信群.png" alt="微信群" width="200"/>
+<img src="images/微信群1-17.png" alt="微信群" width="200"/>
 
 ### 运营微信
 <img src="images/运营微信.png" alt="运营微信" width="200"/>

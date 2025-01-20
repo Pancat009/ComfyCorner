@@ -1,0 +1,590 @@
+{
+  "last_node_id": 44,
+  "last_link_id": 52,
+  "nodes": [
+    {
+      "id": 37,
+      "type": "PreviewImage",
+      "pos": [
+        1288,
+        521.1538696289062
+      ],
+      "size": [
+        428.32733154296875,
+        535.1704711914062
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 48,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 29,
+      "type": "LoadImage",
+      "pos": [
+        757.291748046875,
+        1185.2730712890625
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            40
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": [
+            41
+          ],
+          "slot_index": 1,
+          "label": "MASK"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "clipspace/clipspace-mask-293198.40000003576.png [input]",
+        "image"
+      ]
+    },
+    {
+      "id": 24,
+      "type": "LaMaInpaint",
+      "pos": [
+        1111.2921142578125,
+        1186.2730712890625
+      ],
+      "size": [
+        315,
+        78
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": 40,
+          "label": "image"
+        },
+        {
+          "name": "mask",
+          "type": "MASK",
+          "link": 41,
+          "label": "mask"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            38
+          ],
+          "slot_index": 0,
+          "label": "IMAGE"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LaMaInpaint"
+      },
+      "widgets_values": [
+        "AUTO"
+      ]
+    },
+    {
+      "id": 30,
+      "type": "AV_OpenAIApi",
+      "pos": [
+        1781.151611328125,
+        642.07470703125
+      ],
+      "size": [
+        315,
+        82
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "LLM_API",
+          "type": "LLM_API",
+          "links": [
+            43
+          ],
+          "slot_index": 0,
+          "label": "LLM_API"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AV_OpenAIApi"
+      },
+      "widgets_values": [
+        "",
+        "https://api.openai.com/v1"
+      ]
+    },
+    {
+      "id": 33,
+      "type": "AV_LLMApiConfig",
+      "pos": [
+        1771.151611328125,
+        782.07470703125
+      ],
+      "size": [
+        315,
+        106
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "llm_config",
+          "type": "LLM_CONFIG",
+          "links": [
+            44
+          ],
+          "label": "llm_config"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AV_LLMApiConfig"
+      },
+      "widgets_values": [
+        "gpt-4o",
+        1024,
+        0
+      ]
+    },
+    {
+      "id": 41,
+      "type": "ShowText|pysssss",
+      "pos": [
+        2591.150634765625,
+        552.07470703125
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 50,
+          "widget": {
+            "name": "text"
+          }
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": null,
+          "shape": 6,
+          "label": "STRING"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "ShowText|pysssss"
+      },
+      "widgets_values": [
+        ""
+      ]
+    },
+    {
+      "id": 39,
+      "type": "LoadImageFromUrl",
+      "pos": [
+        752,
+        520.1538696289062
+      ],
+      "size": [
+        497.9750671386719,
+        550.8599243164062
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            48
+          ],
+          "slot_index": 0,
+          "shape": 6,
+          "label": "images"
+        },
+        {
+          "name": "masks",
+          "type": "MASK",
+          "links": null,
+          "shape": 6,
+          "label": "masks",
+          "slot_index": 1
+        },
+        {
+          "name": "has_image",
+          "type": "BOOLEAN",
+          "links": [
+            52
+          ],
+          "label": "has_image",
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImageFromUrl"
+      },
+      "widgets_values": {
+        "image": "https://images.unsplash.com/photo-1734945773967-ca39493ef315?q=80&w=3774&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D\n\nhttps://images.unsplash.com/photo-1735263759278-ed793ef6f1e7?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxmZWF0dXJlZC1waG90b3MtZmVlZHw4fHx8ZW58MHx8fHx8",
+        "keep_alpha_channel": false,
+        "output_mode": true,
+        "choose image to upload": "image"
+      }
+    },
+    {
+      "id": 28,
+      "type": "PreviewImage",
+      "pos": [
+        1466.2921142578125,
+        1185.2730712890625
+      ],
+      "size": [
+        230.90806579589844,
+        277.7262878417969
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 38,
+          "label": "images"
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 32,
+      "type": "AV_LLMChat",
+      "pos": [
+        2241.150634765625,
+        552.07470703125
+      ],
+      "size": [
+        315,
+        122
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "messages",
+          "type": "LLM_MESSAGE",
+          "link": 45,
+          "label": "messages"
+        },
+        {
+          "name": "api",
+          "type": "LLM_API",
+          "link": 43,
+          "label": "api"
+        },
+        {
+          "name": "config",
+          "type": "LLM_CONFIG",
+          "link": 44,
+          "label": "config"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "response",
+          "type": "STRING",
+          "links": [
+            50
+          ],
+          "slot_index": 0,
+          "label": "response"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AV_LLMChat"
+      },
+      "widgets_values": [
+        559790165240452,
+        "randomize"
+      ]
+    },
+    {
+      "id": 34,
+      "type": "AV_LLMMessage",
+      "pos": [
+        1771.151611328125,
+        382.07464599609375
+      ],
+      "size": [
+        400,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "type": "IMAGE",
+          "link": null,
+          "shape": 7,
+          "label": "image"
+        },
+        {
+          "name": "messages",
+          "type": "LLM_MESSAGE",
+          "link": null,
+          "shape": 7,
+          "label": "messages"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "messages",
+          "type": "LLM_MESSAGE",
+          "links": [
+            45
+          ],
+          "label": "messages"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "AV_LLMMessage"
+      },
+      "widgets_values": [
+        "user",
+        "你好"
+      ]
+    },
+    {
+      "id": 44,
+      "type": "easy showAnything",
+      "pos": [
+        1292,
+        372.1539001464844
+      ],
+      "size": [
+        210,
+        76
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "anything",
+          "type": "*",
+          "link": 52,
+          "shape": 7,
+          "label": "anything"
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "type": "*",
+          "links": null,
+          "label": "output"
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "easy showAnything"
+      },
+      "widgets_values": [
+        "true"
+      ]
+    }
+  ],
+  "links": [
+    [
+      38,
+      24,
+      0,
+      28,
+      0,
+      "IMAGE"
+    ],
+    [
+      40,
+      29,
+      0,
+      24,
+      0,
+      "IMAGE"
+    ],
+    [
+      41,
+      29,
+      1,
+      24,
+      1,
+      "MASK"
+    ],
+    [
+      43,
+      30,
+      0,
+      32,
+      1,
+      "LLM_API"
+    ],
+    [
+      44,
+      33,
+      0,
+      32,
+      2,
+      "LLM_CONFIG"
+    ],
+    [
+      45,
+      34,
+      0,
+      32,
+      0,
+      "LLM_MESSAGE"
+    ],
+    [
+      48,
+      39,
+      0,
+      37,
+      0,
+      "IMAGE"
+    ],
+    [
+      50,
+      32,
+      0,
+      41,
+      0,
+      "STRING"
+    ],
+    [
+      52,
+      39,
+      2,
+      44,
+      0,
+      "*"
+    ]
+  ],
+  "groups": [
+    {
+      "id": 1,
+      "title": "Load Image",
+      "bounding": [
+        742,
+        298.55389404296875,
+        984.327392578125,
+        782.4598388671875
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 2,
+      "title": "LaMa",
+      "bounding": [
+        747.291748046875,
+        1111.673095703125,
+        959.9080810546875,
+        397.6000061035156
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    },
+    {
+      "id": 3,
+      "title": "LLM",
+      "bounding": [
+        1761.151611328125,
+        308.47454833984375,
+        1155,
+        589.5999755859375
+      ],
+      "color": "#3f789e",
+      "font_size": 24,
+      "flags": {}
+    }
+  ],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.0610764609500014,
+      "offset": [
+        -49.00647481979604,
+        -221.0983502585472
+      ]
+    },
+    "node_versions": {
+      "comfy-core": "v0.3.4",
+      "comfyui-art-venture": "50abaace756b96f5f5dc2c9d72826ef371afd45e",
+      "ComfyUI-Custom-Scripts": "dff506c7dea0e715f05518354f1f7e1986609703",
+      "ComfyUI-Easy-Use": "5e0cc2ea719203e1cf1b9ee1c782bfc4c281db18"
+    },
+    "ue_links": [],
+    "workspace_info": {
+      "id": "UWhgzSydO3II4b-d1s87M"
+    },
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0
+  },
+  "version": 0.4
+}
