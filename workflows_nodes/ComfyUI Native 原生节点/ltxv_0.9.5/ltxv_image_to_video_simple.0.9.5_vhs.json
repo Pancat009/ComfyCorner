@@ -1,0 +1,889 @@
+{
+  "last_node_id": 96,
+  "last_link_id": 251,
+  "nodes": [
+    {
+      "id": 38,
+      "type": "CLIPLoader",
+      "pos": [
+        60,
+        190
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "CLIP",
+          "label": "CLIP",
+          "type": "CLIP",
+          "links": [
+            74,
+            75
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "CLIPLoader"
+      },
+      "widgets_values": [
+        "t5xxl_fp16.safetensors",
+        "ltxv",
+        "default"
+      ]
+    },
+    {
+      "id": 44,
+      "type": "CheckpointLoaderSimple",
+      "pos": [
+        520,
+        30
+      ],
+      "size": [
+        315,
+        98
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "MODEL",
+          "label": "模型",
+          "type": "MODEL",
+          "links": [
+            181
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "CLIP",
+          "label": "CLIP",
+          "type": "CLIP",
+          "links": null
+        },
+        {
+          "name": "VAE",
+          "label": "VAE",
+          "type": "VAE",
+          "links": [
+            87,
+            250
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "CheckpointLoaderSimple"
+      },
+      "widgets_values": [
+        "ltx-video-2b-v0.9.5.safetensors"
+      ]
+    },
+    {
+      "id": 71,
+      "type": "LTXVScheduler",
+      "pos": [
+        880,
+        290
+      ],
+      "size": [
+        315,
+        154
+      ],
+      "flags": {},
+      "order": 10,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "latent",
+          "label": "latent",
+          "type": "LATENT",
+          "shape": 7,
+          "link": 249
+        }
+      ],
+      "outputs": [
+        {
+          "name": "SIGMAS",
+          "label": "SIGMAS",
+          "type": "SIGMAS",
+          "links": [
+            182
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "LTXVScheduler"
+      },
+      "widgets_values": [
+        30,
+        2.05,
+        0.95,
+        true,
+        0.1
+      ]
+    },
+    {
+      "id": 73,
+      "type": "KSamplerSelect",
+      "pos": [
+        880,
+        190
+      ],
+      "size": [
+        315,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "SAMPLER",
+          "label": "采样器",
+          "type": "SAMPLER",
+          "links": [
+            172
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "KSamplerSelect"
+      },
+      "widgets_values": [
+        "euler"
+      ]
+    },
+    {
+      "id": 69,
+      "type": "LTXVConditioning",
+      "pos": [
+        920,
+        60
+      ],
+      "size": [
+        223.8660125732422,
+        78
+      ],
+      "flags": {},
+      "order": 9,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "label": "positive",
+          "type": "CONDITIONING",
+          "link": 245
+        },
+        {
+          "name": "negative",
+          "label": "negative",
+          "type": "CONDITIONING",
+          "link": 246
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "label": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            199
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "label": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            167
+          ],
+          "slot_index": 1
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "LTXVConditioning"
+      },
+      "widgets_values": [
+        25
+      ]
+    },
+    {
+      "id": 7,
+      "type": "CLIPTextEncode",
+      "pos": [
+        420,
+        390
+      ],
+      "size": [
+        425.27801513671875,
+        180.6060791015625
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "label": "CLIP",
+          "type": "CLIP",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "links": [
+            240
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "low quality, worst quality, deformed, distorted, disfigured, motion smear, motion artifacts, fused fingers, bad anatomy, weird hand, ugly"
+      ],
+      "color": "#322",
+      "bgcolor": "#533"
+    },
+    {
+      "id": 82,
+      "type": "LTXVPreprocess",
+      "pos": [
+        570,
+        670
+      ],
+      "size": [
+        275.9266662597656,
+        58
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image",
+          "label": "image",
+          "type": "IMAGE",
+          "link": 226
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output_image",
+          "label": "output_image",
+          "type": "IMAGE",
+          "links": [
+            248
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "LTXVPreprocess"
+      },
+      "widgets_values": [
+        40
+      ]
+    },
+    {
+      "id": 78,
+      "type": "LoadImage",
+      "pos": [
+        150,
+        670
+      ],
+      "size": [
+        385.15606689453125,
+        333.3305358886719
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "label": "图像",
+          "type": "IMAGE",
+          "links": [
+            226
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "MASK",
+          "label": "遮罩",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "0.png",
+        "image"
+      ]
+    },
+    {
+      "id": 6,
+      "type": "CLIPTextEncode",
+      "pos": [
+        420,
+        180
+      ],
+      "size": [
+        422.84503173828125,
+        164.31304931640625
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "clip",
+          "label": "CLIP",
+          "type": "CLIP",
+          "link": 74
+        }
+      ],
+      "outputs": [
+        {
+          "name": "CONDITIONING",
+          "label": "条件",
+          "type": "CONDITIONING",
+          "links": [
+            239
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "CLIPTextEncode"
+      },
+      "widgets_values": [
+        "a beautiful lady wearing yellow dress, and walk in the garden"
+      ],
+      "color": "#232",
+      "bgcolor": "#353"
+    },
+    {
+      "id": 76,
+      "type": "Note",
+      "pos": [
+        40,
+        350
+      ],
+      "size": [
+        360,
+        200
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {},
+      "widgets_values": [
+        "这种模式需要较长的描述性提示，如果提示太短，质量就会大打折扣。\n\n*建议尽量具体详细描述提示词"
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 72,
+      "type": "SamplerCustom",
+      "pos": [
+        1214.47705078125,
+        63.209632873535156
+      ],
+      "size": [
+        355.20001220703125,
+        442
+      ],
+      "flags": {},
+      "order": 11,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "model",
+          "label": "模型",
+          "type": "MODEL",
+          "link": 181
+        },
+        {
+          "name": "positive",
+          "label": "正面条件",
+          "type": "CONDITIONING",
+          "link": 199
+        },
+        {
+          "name": "negative",
+          "label": "负面条件",
+          "type": "CONDITIONING",
+          "link": 167
+        },
+        {
+          "name": "sampler",
+          "label": "采样器",
+          "type": "SAMPLER",
+          "link": 172
+        },
+        {
+          "name": "sigmas",
+          "label": "Sigmas",
+          "type": "SIGMAS",
+          "link": 182
+        },
+        {
+          "name": "latent_image",
+          "label": "Latent",
+          "type": "LATENT",
+          "link": 247
+        }
+      ],
+      "outputs": [
+        {
+          "name": "output",
+          "label": "输出",
+          "type": "LATENT",
+          "links": [
+            235
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "denoised_output",
+          "label": "降噪输出",
+          "type": "LATENT",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "SamplerCustom"
+      },
+      "widgets_values": [
+        true,
+        1030311749846938,
+        "randomize",
+        3
+      ]
+    },
+    {
+      "id": 8,
+      "type": "VAEDecode",
+      "pos": [
+        1591.777587890625,
+        63.043216705322266
+      ],
+      "size": [
+        210,
+        46
+      ],
+      "flags": {},
+      "order": 12,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "samples",
+          "label": "Latent",
+          "type": "LATENT",
+          "link": 235
+        },
+        {
+          "name": "vae",
+          "label": "VAE",
+          "type": "VAE",
+          "link": 87
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "label": "图像",
+          "type": "IMAGE",
+          "links": [
+            251
+          ],
+          "slot_index": 0
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "VAEDecode"
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 96,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1816.36279296875,
+        65.47537994384766
+      ],
+      "size": [
+        550.4686889648438,
+        878.4686889648438
+      ],
+      "flags": {},
+      "order": 13,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "label": "图像",
+          "type": "IMAGE",
+          "link": 251
+        },
+        {
+          "name": "audio",
+          "label": "音频",
+          "type": "AUDIO",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "meta_batch",
+          "label": "批次管理",
+          "type": "VHS_BatchManager",
+          "shape": 7,
+          "link": null
+        },
+        {
+          "name": "vae",
+          "type": "VAE",
+          "shape": 7,
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "Filenames",
+          "label": "文件名",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "4c7858ddd5126f7293dc3c9f6e0fc4c263cde079",
+        "Node name for S&R": "VHS_VideoCombine"
+      },
+      "widgets_values": {
+        "frame_rate": 24,
+        "loop_count": 0,
+        "filename_prefix": "ltxv_i2v",
+        "format": "video/h264-mp4",
+        "pix_fmt": "yuv420p",
+        "crf": 19,
+        "save_metadata": true,
+        "trim_to_audio": false,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "ltxv_i2v_00003.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/h264-mp4",
+            "frame_rate": 24,
+            "workflow": "ltxv_i2v_00003.png",
+            "fullpath": "C:\\comfyui-aki-torch240\\output\\ltxv_i2v_00003.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 95,
+      "type": "LTXVImgToVideo",
+      "pos": [
+        888.8251342773438,
+        608.7010498046875
+      ],
+      "size": [
+        315,
+        190
+      ],
+      "flags": {},
+      "order": 8,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "positive",
+          "label": "positive",
+          "type": "CONDITIONING",
+          "link": 239
+        },
+        {
+          "name": "negative",
+          "label": "negative",
+          "type": "CONDITIONING",
+          "link": 240
+        },
+        {
+          "name": "vae",
+          "label": "vae",
+          "type": "VAE",
+          "link": 250
+        },
+        {
+          "name": "image",
+          "label": "image",
+          "type": "IMAGE",
+          "link": 248
+        }
+      ],
+      "outputs": [
+        {
+          "name": "positive",
+          "label": "positive",
+          "type": "CONDITIONING",
+          "links": [
+            245
+          ],
+          "slot_index": 0
+        },
+        {
+          "name": "negative",
+          "label": "negative",
+          "type": "CONDITIONING",
+          "links": [
+            246
+          ],
+          "slot_index": 1
+        },
+        {
+          "name": "latent",
+          "label": "latent",
+          "type": "LATENT",
+          "links": [
+            247,
+            249
+          ],
+          "slot_index": 2
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.26",
+        "Node name for S&R": "LTXVImgToVideo"
+      },
+      "widgets_values": [
+        512,
+        512,
+        97,
+        1
+      ]
+    }
+  ],
+  "links": [
+    [
+      74,
+      38,
+      0,
+      6,
+      0,
+      "CLIP"
+    ],
+    [
+      75,
+      38,
+      0,
+      7,
+      0,
+      "CLIP"
+    ],
+    [
+      87,
+      44,
+      2,
+      8,
+      1,
+      "VAE"
+    ],
+    [
+      167,
+      69,
+      1,
+      72,
+      2,
+      "CONDITIONING"
+    ],
+    [
+      172,
+      73,
+      0,
+      72,
+      3,
+      "SAMPLER"
+    ],
+    [
+      181,
+      44,
+      0,
+      72,
+      0,
+      "MODEL"
+    ],
+    [
+      182,
+      71,
+      0,
+      72,
+      4,
+      "SIGMAS"
+    ],
+    [
+      199,
+      69,
+      0,
+      72,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      226,
+      78,
+      0,
+      82,
+      0,
+      "IMAGE"
+    ],
+    [
+      235,
+      72,
+      0,
+      8,
+      0,
+      "LATENT"
+    ],
+    [
+      239,
+      6,
+      0,
+      95,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      240,
+      7,
+      0,
+      95,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      245,
+      95,
+      0,
+      69,
+      0,
+      "CONDITIONING"
+    ],
+    [
+      246,
+      95,
+      1,
+      69,
+      1,
+      "CONDITIONING"
+    ],
+    [
+      247,
+      95,
+      2,
+      72,
+      5,
+      "LATENT"
+    ],
+    [
+      248,
+      82,
+      0,
+      95,
+      3,
+      "IMAGE"
+    ],
+    [
+      249,
+      95,
+      2,
+      71,
+      0,
+      "LATENT"
+    ],
+    [
+      250,
+      44,
+      2,
+      95,
+      2,
+      "VAE"
+    ],
+    [
+      251,
+      8,
+      0,
+      96,
+      0,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 1.5535220464768975,
+      "offset": [
+        547.1624448072973,
+        109.23878620850776
+      ]
+    },
+    "ue_links": [],
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}
