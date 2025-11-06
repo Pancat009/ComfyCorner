@@ -1,0 +1,204 @@
+{
+  "id": "7ef5c0e0-b61f-4ad8-a2e7-9eb86aaa15e6",
+  "revision": 0,
+  "last_node_id": 58,
+  "last_link_id": 69,
+  "nodes": [
+    {
+      "id": 55,
+      "type": "LoadVideo",
+      "pos": [
+        -484.74945068359375,
+        -126.60325622558594
+      ],
+      "size": [
+        409.98541259765625,
+        399.4589538574219
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "VIDEO",
+          "type": "VIDEO",
+          "links": [
+            68
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadVideo",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "AnimateDiff_00002.mp4",
+        "Video"
+      ]
+    },
+    {
+      "id": 56,
+      "type": "MiniCPM_VQA_Polished",
+      "pos": [
+        -60.45558547973633,
+        -124.85325622558594
+      ],
+      "size": [
+        411.7491149902344,
+        394.8070373535156
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": 68
+        },
+        {
+          "name": "source_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            69
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniCPM_VQA_Polished",
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "Describe the video in detail",
+        "MiniCPM-V-4_5-int4",
+        true,
+        0.8,
+        100,
+        0.7,
+        1.05,
+        2048,
+        64,
+        2,
+        978,
+        "randomize"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "DisplayText",
+      "pos": [
+        -480.8397216796875,
+        326.099853515625
+      ],
+      "size": [
+        829.0487670898438,
+        111.2472915649414
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 69
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "DisplayText"
+      },
+      "widgets_values": [
+        "The video captures a stunning sunset scene. The sun is depicted as an enormous, glowing orb in the sky, casting vibrant hues of orange and red across the atmosphere. This creates a dramatic backdrop for the silhouette of a solitary tree standing on what appears to be flat land. Birds can be seen flying around the setting sun, adding life to the serene landscape. There are no other objects like buildings or vehicles visible, emphasizing the natural beauty and tranquility of the moment."
+      ]
+    },
+    {
+      "id": 7,
+      "type": "Note",
+      "pos": [
+        -485.3626403808594,
+        -276.0425720214844
+      ],
+      "size": [
+        832.9252319335938,
+        88
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "当 MiniCPM VQA 同时接收到图像和视频信息时，它会仅处理视频信息而忽略图像信息。如果您想处理图像信息，请断开视频信息的输入。\n\nWhen MiniCPM VQA simultaneously receives both image and video information, it processes only the video information while ignoring the image information. If you want to process the image information, please disconnect the input of the video information."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    }
+  ],
+  "links": [
+    [
+      68,
+      55,
+      0,
+      56,
+      0,
+      "VIDEO"
+    ],
+    [
+      69,
+      56,
+      0,
+      58,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.9646149645000006,
+      "offset": [
+        630.1225666298221,
+        338.759734215204
+      ]
+    },
+    "groupNodes": {},
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.25.5",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

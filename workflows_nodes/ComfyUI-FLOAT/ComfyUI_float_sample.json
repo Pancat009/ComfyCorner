@@ -1,0 +1,421 @@
+{
+  "id": "24139a50-af2d-476b-93d9-2743285fab1b",
+  "revision": 0,
+  "last_node_id": 11,
+  "last_link_id": 29,
+  "nodes": [
+    {
+      "id": 11,
+      "type": "PrimitiveFloat",
+      "pos": [
+        410.1903381347656,
+        210.4737548828125
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "FLOAT",
+          "name": "FLOAT",
+          "type": "FLOAT",
+          "links": [
+            28,
+            29
+          ]
+        }
+      ],
+      "title": "FPS",
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "PrimitiveFloat",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        25
+      ]
+    },
+    {
+      "id": 4,
+      "type": "LoadAudio",
+      "pos": [
+        403.0230712890625,
+        690.6533203125
+      ],
+      "size": [
+        274.080078125,
+        136
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "AUDIO",
+          "name": "AUDIO",
+          "type": "AUDIO",
+          "links": [
+            6,
+            25
+          ]
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "LoadAudio",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "audio_006435_temp.wav",
+        null,
+        null
+      ]
+    },
+    {
+      "id": 6,
+      "type": "VHS_VideoCombine",
+      "pos": [
+        1095.977783203125,
+        353.8601989746094
+      ],
+      "size": [
+        270,
+        598
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "link": 26
+        },
+        {
+          "label": "audio",
+          "name": "audio",
+          "shape": 7,
+          "type": "AUDIO",
+          "link": 6
+        },
+        {
+          "label": "meta_batch",
+          "name": "meta_batch",
+          "shape": 7,
+          "type": "VHS_BatchManager",
+          "link": null
+        },
+        {
+          "label": "vae",
+          "name": "vae",
+          "shape": 7,
+          "type": "VAE",
+          "link": null
+        },
+        {
+          "label": "frame_rate",
+          "name": "frame_rate",
+          "type": "FLOAT",
+          "widget": {
+            "name": "frame_rate"
+          },
+          "link": 29
+        }
+      ],
+      "outputs": [
+        {
+          "label": "Filenames",
+          "name": "Filenames",
+          "type": "VHS_FILENAMES",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfyui-videohelpersuite",
+        "ver": "8e4d79471bf1952154768e8435a9300077b534fa",
+        "Node name for S&R": "VHS_VideoCombine",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "frame_rate": true
+          },
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": {
+        "frame_rate": 25,
+        "loop_count": 0,
+        "filename_prefix": "AnimateDiff",
+        "format": "video/nvenc_h264-mp4",
+        "pix_fmt": "yuv420p",
+        "bitrate": 10,
+        "megabit": true,
+        "save_metadata": true,
+        "pingpong": false,
+        "save_output": true,
+        "videopreview": {
+          "hidden": false,
+          "paused": false,
+          "params": {
+            "filename": "AnimateDiff_00008-audio.mp4",
+            "subfolder": "",
+            "type": "output",
+            "format": "video/nvenc_h264-mp4",
+            "frame_rate": 25,
+            "workflow": "AnimateDiff_00008.png",
+            "fullpath": "C:\\comfyui-aki-torch240\\output\\AnimateDiff_00008-audio.mp4"
+          }
+        }
+      }
+    },
+    {
+      "id": 10,
+      "type": "FloatProcess",
+      "pos": [
+        775.839599609375,
+        385.2976379394531
+      ],
+      "size": [
+        270,
+        266
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "label": "ref_image",
+          "name": "ref_image",
+          "type": "IMAGE",
+          "link": 24
+        },
+        {
+          "label": "ref_audio",
+          "name": "ref_audio",
+          "type": "AUDIO",
+          "link": 25
+        },
+        {
+          "label": "float_pipe",
+          "name": "float_pipe",
+          "type": "FLOAT_PIPE",
+          "link": 23
+        },
+        {
+          "label": "fps",
+          "name": "fps",
+          "type": "FLOAT",
+          "widget": {
+            "name": "fps"
+          },
+          "link": 28
+        }
+      ],
+      "outputs": [
+        {
+          "label": "images",
+          "name": "images",
+          "type": "IMAGE",
+          "links": [
+            26
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "yuvraj108c/ComfyUI-FLOAT",
+        "ver": "eedad89090eaf60752ecdd90f389ffb6a9bb3525",
+        "Node name for S&R": "FloatProcess",
+        "ue_properties": {
+          "widget_ue_connectable": {
+            "fps": true
+          },
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        2,
+        1,
+        1,
+        25,
+        "happy",
+        true,
+        982045898717762,
+        "fixed"
+      ]
+    },
+    {
+      "id": 1,
+      "type": "LoadFloatModels",
+      "pos": [
+        403.9039001464844,
+        877.6525268554688
+      ],
+      "size": [
+        270,
+        58
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "float_pipe",
+          "name": "float_pipe",
+          "type": "FLOAT_PIPE",
+          "links": [
+            23
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "yuvraj108c/ComfyUI-FLOAT",
+        "ver": "eedad89090eaf60752ecdd90f389ffb6a9bb3525",
+        "Node name for S&R": "LoadFloatModels",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "float.pth"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "LoadImage",
+      "pos": [
+        408.3001403808594,
+        327.2937927246094
+      ],
+      "size": [
+        274.080078125,
+        314.0000305175781
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "label": "IMAGE",
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            24
+          ]
+        },
+        {
+          "label": "MASK",
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.49",
+        "Node name for S&R": "LoadImage",
+        "ue_properties": {
+          "widget_ue_connectable": {},
+          "version": "7.0.1"
+        }
+      },
+      "widgets_values": [
+        "286df6d9e4704c7a8d937859a285a0c6.jpeg",
+        "image"
+      ]
+    }
+  ],
+  "links": [
+    [
+      6,
+      4,
+      0,
+      6,
+      1,
+      "AUDIO"
+    ],
+    [
+      23,
+      1,
+      0,
+      10,
+      2,
+      "FLOAT_PIPE"
+    ],
+    [
+      24,
+      3,
+      0,
+      10,
+      0,
+      "IMAGE"
+    ],
+    [
+      25,
+      4,
+      0,
+      10,
+      1,
+      "AUDIO"
+    ],
+    [
+      26,
+      10,
+      0,
+      6,
+      0,
+      "IMAGE"
+    ],
+    [
+      28,
+      11,
+      0,
+      10,
+      3,
+      "FLOAT"
+    ],
+    [
+      29,
+      11,
+      0,
+      6,
+      4,
+      "FLOAT"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "frontendVersion": "1.23.4",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true,
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "ds": {
+      "scale": 1.17843784302213,
+      "offset": [
+        85.28752967115814,
+        -55.94113191331687
+      ]
+    }
+  },
+  "version": 0.4
+}

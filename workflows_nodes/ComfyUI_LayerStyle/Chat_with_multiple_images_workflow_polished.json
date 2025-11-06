@@ -1,0 +1,403 @@
+{
+  "id": "961bfaa7-3def-4804-8b24-232d21a3abfd",
+  "revision": 0,
+  "last_node_id": 63,
+  "last_link_id": 75,
+  "nodes": [
+    {
+      "id": 7,
+      "type": "Note",
+      "pos": [
+        -986,
+        -453
+      ],
+      "size": [
+        717.5083618164062,
+        88
+      ],
+      "flags": {
+        "collapsed": false
+      },
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [],
+      "properties": {
+        "text": "",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "当 MiniCPM VQA 同时接收到图像和视频信息时，它会仅处理视频信息而忽略图像信息。如果您想处理图像信息，请断开视频信息的输入。\n\nWhen MiniCPM VQA simultaneously receives both image and video information, it processes only the video information while ignoring the image information. If you want to process the image information, please disconnect the input of the video information."
+      ],
+      "color": "#432",
+      "bgcolor": "#653"
+    },
+    {
+      "id": 55,
+      "type": "LoadImage",
+      "pos": [
+        -1232,
+        -453
+      ],
+      "size": [
+        210,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            65
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00509_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 56,
+      "type": "LoadImage",
+      "pos": [
+        -1234,
+        -122
+      ],
+      "size": [
+        214.43836975097656,
+        314
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            66
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00532_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 58,
+      "type": "LoadImage",
+      "pos": [
+        -1232,
+        227
+      ],
+      "size": [
+        210,
+        314
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            68
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "LoadImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "ComfyUI_00508_.png",
+        "image"
+      ]
+    },
+    {
+      "id": 59,
+      "type": "PreviewImage",
+      "pos": [
+        -247,
+        -450
+      ],
+      "size": [
+        321.89825439453125,
+        978.513916015625
+      ],
+      "flags": {},
+      "order": 5,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 69
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "Node name for S&R": "PreviewImage",
+        "cnr_id": "comfy-core",
+        "ver": "0.3.44",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": []
+    },
+    {
+      "id": 54,
+      "type": "MultipleImagesInput",
+      "pos": [
+        -986,
+        -136
+      ],
+      "size": [
+        210,
+        122
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "image_1",
+          "type": "IMAGE",
+          "link": 65
+        },
+        {
+          "name": "image_2",
+          "type": "IMAGE",
+          "link": 66
+        },
+        {
+          "name": "image_3",
+          "type": "IMAGE",
+          "link": 68
+        }
+      ],
+      "outputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "slot_index": 0,
+          "links": [
+            69,
+            73
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MultipleImagesInput",
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        3
+      ]
+    },
+    {
+      "id": 61,
+      "type": "MiniCPM_VQA_Polished",
+      "pos": [
+        -697,
+        -241
+      ],
+      "size": [
+        400,
+        412
+      ],
+      "flags": {},
+      "order": 6,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "source_video",
+          "shape": 7,
+          "type": "VIDEO",
+          "link": null
+        },
+        {
+          "name": "source_image",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 73
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "type": "STRING",
+          "links": [
+            75
+          ]
+        }
+      ],
+      "properties": {
+        "Node name for S&R": "MiniCPM_VQA_Polished",
+        "aux_id": "zhuanvi/ComfyUI_MiniCPM-V-2_6-int4",
+        "ver": "763f95133a95b611977efaa05ad654ff410670a9",
+        "widget_ue_connectable": {}
+      },
+      "widgets_values": [
+        "Compare image 1, image 2 and image 3, tell me about the differences among them.",
+        "MiniCPM-V-4_5-int4",
+        false,
+        0.8,
+        100,
+        0.7,
+        1.05,
+        2048,
+        64,
+        2,
+        1574,
+        "randomize"
+      ]
+    },
+    {
+      "id": 63,
+      "type": "DisplayText",
+      "pos": [
+        -695.5367431640625,
+        236.86334228515625
+      ],
+      "size": [
+        398.0273132324219,
+        251.64744567871094
+      ],
+      "flags": {},
+      "order": 7,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "text",
+          "type": "STRING",
+          "link": 75
+        }
+      ],
+      "outputs": [
+        {
+          "name": "STRING",
+          "shape": 6,
+          "type": "STRING",
+          "links": null
+        }
+      ],
+      "properties": {
+        "widget_ue_connectable": {},
+        "Node name for S&R": "DisplayText"
+      },
+      "widgets_values": [
+        "Image 1 shows a view of Earth from space with the North American continent prominently displayed. Image 2 is similar to image 1 but includes an additional celestial body, which appears to be a moon or another planet, positioned near the top left corner of the frame. Image 3 depicts Earth again, this time with Saturn and its rings visible in the background. The sun is also present in all three images, shining brightly behind Earth.\n\nThe main differences among these images are:\n1. Presence of Additional Celestial Bodies: Image 2 has an extra object (moon/planet) compared to image 1.\n2. Background Elements: Image 3 introduces Saturn and its rings as part of the backdrop, whereas image 1 does not have any such features."
+      ]
+    }
+  ],
+  "links": [
+    [
+      65,
+      55,
+      0,
+      54,
+      0,
+      "IMAGE"
+    ],
+    [
+      66,
+      56,
+      0,
+      54,
+      1,
+      "IMAGE"
+    ],
+    [
+      68,
+      58,
+      0,
+      54,
+      2,
+      "IMAGE"
+    ],
+    [
+      69,
+      54,
+      0,
+      59,
+      0,
+      "IMAGE"
+    ],
+    [
+      73,
+      54,
+      0,
+      61,
+      1,
+      "IMAGE"
+    ],
+    [
+      75,
+      61,
+      0,
+      63,
+      0,
+      "STRING"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.6588450000000009,
+      "offset": [
+        1525.610289271432,
+        555.581645176858
+      ]
+    },
+    "groupNodes": {},
+    "ue_links": [],
+    "links_added_by_ue": [],
+    "frontendVersion": "1.25.5",
+    "VHS_latentpreview": false,
+    "VHS_latentpreviewrate": 0,
+    "VHS_MetadataImage": true,
+    "VHS_KeepIntermediate": true
+  },
+  "version": 0.4
+}

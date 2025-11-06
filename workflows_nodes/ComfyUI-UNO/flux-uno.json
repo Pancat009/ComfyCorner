@@ -1,0 +1,272 @@
+{
+  "id": "a2846121-208b-41df-a41d-099d6388aba8",
+  "revision": 0,
+  "last_node_id": 5,
+  "last_link_id": 5,
+  "nodes": [
+    {
+      "id": 1,
+      "type": "LoadImage",
+      "pos": [
+        538.5972900390625,
+        -260.3052673339844
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 0,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            2
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ref1.png",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 4,
+      "type": "LoadImage",
+      "pos": [
+        157.57449340820312,
+        -301.32635498046875
+      ],
+      "size": [
+        315,
+        314
+      ],
+      "flags": {},
+      "order": 1,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            5
+          ]
+        },
+        {
+          "name": "MASK",
+          "type": "MASK",
+          "links": null
+        }
+      ],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27",
+        "Node name for S&R": "LoadImage"
+      },
+      "widgets_values": [
+        "ref2.png",
+        "image",
+        ""
+      ]
+    },
+    {
+      "id": 5,
+      "type": "SaveImage",
+      "pos": [
+        171.03018188476562,
+        81.16024780273438
+      ],
+      "size": [
+        315,
+        270
+      ],
+      "flags": {},
+      "order": 4,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "images",
+          "type": "IMAGE",
+          "link": 4
+        }
+      ],
+      "outputs": [],
+      "properties": {
+        "cnr_id": "comfy-core",
+        "ver": "0.3.27"
+      },
+      "widgets_values": [
+        "ComfyUI",
+        ""
+      ]
+    },
+    {
+      "id": 2,
+      "type": "UNOGenerate",
+      "pos": [
+        900.6705932617188,
+        -25.89038848876953
+      ],
+      "size": [
+        400,
+        336
+      ],
+      "flags": {},
+      "order": 3,
+      "mode": 0,
+      "inputs": [
+        {
+          "name": "uno_model",
+          "type": "UNO_MODEL",
+          "link": 1
+        },
+        {
+          "name": "reference_image_1",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 2
+        },
+        {
+          "name": "reference_image_2",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": 5
+        },
+        {
+          "name": "reference_image_3",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        },
+        {
+          "name": "reference_image_4",
+          "shape": 7,
+          "type": "IMAGE",
+          "link": null
+        }
+      ],
+      "outputs": [
+        {
+          "name": "IMAGE",
+          "type": "IMAGE",
+          "links": [
+            4
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "jax-explorer/ComfyUI-UNO",
+        "ver": "2d7dc8a7b629c131d9c221388fae90d1b3f983f2",
+        "Node name for S&R": "UNOGenerate"
+      },
+      "widgets_values": [
+        "The figurine is in the crystal ball",
+        1024,
+        1024,
+        4,
+        25,
+        1242,
+        "randomize",
+        "d"
+      ]
+    },
+    {
+      "id": 3,
+      "type": "UNOModelLoader",
+      "pos": [
+        509.15509033203125,
+        94.98049926757812
+      ],
+      "size": [
+        315,
+        154
+      ],
+      "flags": {},
+      "order": 2,
+      "mode": 0,
+      "inputs": [],
+      "outputs": [
+        {
+          "name": "uno_model",
+          "type": "UNO_MODEL",
+          "links": [
+            1
+          ]
+        }
+      ],
+      "properties": {
+        "aux_id": "jax-explorer/ComfyUI-UNO",
+        "ver": "2d7dc8a7b629c131d9c221388fae90d1b3f983f2",
+        "Node name for S&R": "UNOModelLoader"
+      },
+      "widgets_values": [
+        "flux1-dev.safetensors",
+        "ae.safetensors",
+        "flux-dev",
+        false,
+        "uno_lora.safetensors"
+      ]
+    }
+  ],
+  "links": [
+    [
+      1,
+      3,
+      0,
+      2,
+      0,
+      "UNO_MODEL"
+    ],
+    [
+      2,
+      1,
+      0,
+      2,
+      1,
+      "IMAGE"
+    ],
+    [
+      4,
+      2,
+      0,
+      5,
+      0,
+      "IMAGE"
+    ],
+    [
+      5,
+      4,
+      0,
+      2,
+      2,
+      "IMAGE"
+    ]
+  ],
+  "groups": [],
+  "config": {},
+  "extra": {
+    "ds": {
+      "scale": 0.7627768444385551,
+      "offset": [
+        134.25768771258308,
+        448.55285866326324
+      ]
+    }
+  },
+  "version": 0.4
+}
